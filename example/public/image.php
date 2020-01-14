@@ -13,7 +13,7 @@
 
 // option param
 const FILE_REGEX = '@\A[a-z0-9_-]+\z@ui';
-const EXT_REGEX = '@\A[a-z]+\z@ui';
+const EXT_REGEX = '@\A[a-z]+\z@u';
 const ALLOW_MIME_TYPE = [
   'gif' => 'image/gif',
   'jpg' => 'image/jpeg',
@@ -22,8 +22,8 @@ const ALLOW_MIME_TYPE = [
 
 // get query param
 $path = (int)filter_input(INPUT_GET, 'p');
-$input_name = filter_input(INPUT_GET, 'f');
-$input_ext = filter_input(INPUT_GET, 'e');
+$input_name = (string)filter_input(INPUT_GET, 'f');
+$input_ext = strtolower((string)filter_input(INPUT_GET, 'e'));
 
 // switching img path
 if ($path === 1) {
