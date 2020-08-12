@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Invisible Image URL</title>
+    <meta charset="utf-8">
+    <title>Invisible Image URL</title>
 </head>
 <body>
 <main>
-  <section>
-    <h1>Example system directory</h1>
-    <pre>
+    <section>
+        <h1>Example system directory</h1>
+        <pre>
 invisible_image_url
 |-img_dir1
 | |-bonus1.png
@@ -25,17 +25,22 @@ invisible_image_url
   |-index.php [here]
   |-example.php
   |-example2.php
-  |-image.php
-    </pre>
-  </section>
-  <section>
-    <div>
-      <a href="example.php">example1</a>
-    </div>
-    <div>
-      <a href="example2.php">example2</a>
-    </div>
-  </section>
+  |-example3.php
+  |-ex1_image.php
+        </pre>
+    </section>
+
+    <section>
+        <div>
+            <a href="example.php">example</a>
+        </div>
+        <div>
+            <a href="example2.php">example2</a>
+        </div>
+        <div>
+            <a href="example3.php">example3</a>
+        </div>
+    </section>
 </main>
 </body>
 </html>

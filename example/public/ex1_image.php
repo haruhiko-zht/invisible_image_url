@@ -1,14 +1,5 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| invisible_image_url
-|--------------------------------------------------------------------------
-|
-| Hide image urls and add auth to image.
-|
-*/
-
 const FILE_REGEX = '@\A[a-z0-9_-]+\z@ui';
 const EXT_REGEX = '@\A[a-z]+\z@u';
 const ALLOW_MIME_TYPE = [
@@ -18,21 +9,13 @@ const ALLOW_MIME_TYPE = [
     'svg' => 'image/svg+xml',
 ];
 const IMG_PATH = [
-    1 => '/path/to/image/dir1/',
-    2 => '/path/to/image/dir2/',
+    1 => __DIR__ . '/../img_dir1/',
+    2 => __DIR__ . '/img_dir2/',
+    3 => __DIR__ . '/img_dir3/',
 ];
 
 // Flag
 $display = true;
-
-
-// =======================================================================
-// If you require access restrictions, you can write here.
-// if (!isLogin()) {
-//     $display = false;
-// }
-// =======================================================================
-
 
 // Get query param
 $path = (int)filter_input(INPUT_GET, 'p');
@@ -44,15 +27,6 @@ $img_path = IMG_PATH[$path] ?? '';
 if (empty($img_path)) {
     $display = false;
 }
-
-
-// =======================================================================
-// If you require access restrictions for each path, you can write here.
-// if (!isSubscribe($path|$img_path)) {
-//     $display = false;
-// }
-// =======================================================================
-
 
 // Validate regex
 if ($display) {
@@ -74,15 +48,6 @@ if ($display) {
     $ext = array_search($mime_type, ALLOW_MIME_TYPE, true);
     $display = $display && ($ext !== false);
 }
-
-
-// =======================================================================
-// If you require access restrictions for each path, you can write here.
-// if (!isSubscribe($img_path . $input_name . $ext)) {
-//     $display = false;
-// }
-// =======================================================================
-
 
 // Response
 if ($display) {
