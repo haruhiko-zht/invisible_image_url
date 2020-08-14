@@ -66,7 +66,7 @@ if ($display) {
     $display = $display && is_file($img_path . $input_file);
 }
 
-// Validate allowed ext
+// Validate whether allowed ext
 if ($display) {
     $finfo = new finfo(FILEINFO_MIME_TYPE);
     $mime_type = $finfo->file($img_path . $input_file);
