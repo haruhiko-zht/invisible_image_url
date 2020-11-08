@@ -37,24 +37,47 @@ foreach ($images as $image) {
     <meta charset="utf-8">
     <title>Invisible Image URL</title>
     <style>
-        table {
-            border-collapse: collapse;
-            border: 1px solid #666;
-        }
+      table {
+        border-collapse: collapse;
+        border: 1px solid #666;
+      }
 
-        th, td {
-            padding: 5px;
-            border: 1px solid #666;
-        }
+      th, td {
+        padding: 5px;
+        border: 1px solid #666;
+      }
 
-        img {
-            width: 50px;
-            height: 50px;
-        }
+      img {
+        width: 50px;
+        height: 50px;
+      }
     </style>
 </head>
 <body>
 <main>
+    <section>
+        <h1>Example system directory</h1>
+        <pre>
+invisible_image_url
+|-img_dir1
+| |-bonus1.png
+| |-busy1.png
+|
+|-public [document root]
+  |-img_dir2
+  | |-.htaccess(deny from all)
+  | |-busy2.png
+  |
+  |-img_dir3
+  | |-busy3.png
+  |
+  |-index.php
+  |-example.php
+  |-example2.php
+  |-example3.php [here]
+  |-ex1_image.php
+        </pre>
+    </section>
     <section>
         <?= $html ?? '' ?>
     </section>

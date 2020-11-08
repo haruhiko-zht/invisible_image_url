@@ -1,4 +1,5 @@
 <?php
+
 ini_set('display_errors', 1);
 ini_set('error_reporting', E_ALL);
 ?>
@@ -9,26 +10,49 @@ ini_set('error_reporting', E_ALL);
     <meta charset="utf-8">
     <title>Invisible Image URL</title>
     <style>
-        table {
-            border-collapse: collapse;
-            border: 1px solid #666;
-        }
+      table {
+        border-collapse: collapse;
+        border: 1px solid #666;
+      }
 
-        th, td {
-            padding: 5px;
-            border: 1px solid #666;
-        }
+      th, td {
+        padding: 5px;
+        border: 1px solid #666;
+      }
 
-        img {
-            width: 50px;
-            height: 50px;
-        }
+      img {
+        width: 50px;
+        height: 50px;
+      }
     </style>
 </head>
 <body>
 <main>
     <section>
-        <h1>img_dir1</h1>
+        <h1>Example system directory</h1>
+        <pre>
+invisible_image_url
+|-img_dir1
+| |-bonus1.png
+| |-busy1.png
+|
+|-public [document root]
+  |-img_dir2
+  | |-.htaccess(deny from all)
+  | |-busy2.png
+  |
+  |-img_dir3
+  | |-busy3.png
+  |
+  |-index.php
+  |-example.php [here]
+  |-example2.php
+  |-example3.php
+  |-ex1_image.php
+        </pre>
+    </section>
+    <section>
+        <h1>img_dir1 (Outside the document root)</h1>
         <table>
             <tbody>
             <tr>
@@ -46,7 +70,7 @@ ini_set('error_reporting', E_ALL);
             </tbody>
         </table>
 
-        <h1>img_dir2</h1>
+        <h1>img_dir2 (Inside the document root, Deny from all by .htaccess)</h1>
         <table>
             <tbody>
             <tr>
@@ -64,7 +88,7 @@ ini_set('error_reporting', E_ALL);
             </tbody>
         </table>
 
-        <h1>img_dir3</h1>
+        <h1>img_dir3 (Inside the document root)</h1>
         <table>
             <tbody>
             <tr>
@@ -82,7 +106,7 @@ ini_set('error_reporting', E_ALL);
             </tbody>
         </table>
 
-        <h1>img_dir4</h1>
+        <h1>img_dir4 (Outside the document root, Non-existent directory)</h1>
         <table>
             <tbody>
             <tr>
@@ -100,7 +124,7 @@ ini_set('error_reporting', E_ALL);
             </tbody>
         </table>
 
-        <h1>img_dir5</h1>
+        <h1>img_dir5 (Inside the document root, Non-existent directory)</h1>
         <table>
             <tbody>
             <tr>
@@ -112,7 +136,8 @@ ini_set('error_reporting', E_ALL);
                     <a href="img_dir5/busy5.png"><img src="img_dir5/busy5.png" alt="img9"></a>
                 </td>
                 <td>
-                    <a href="ex1_image.php?p=5&f=busy5&e=png"><img src="ex1_image.php?p=5&f=busy5&e=png" alt="img10"></a>
+                    <a href="ex1_image.php?p=5&f=busy5&e=png"><img src="ex1_image.php?p=5&f=busy5&e=png"
+                                                                   alt="img10"></a>
                 </td>
             </tr>
             </tbody>
