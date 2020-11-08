@@ -9,7 +9,7 @@
 |
 */
 
-const FILE_REGEX = '@\A[a-z0-9_-]+\z@ui';
+const FILE_REGEX = '@\A[a-z0-9]+\z@ui';
 const EXT_REGEX = '@\A[a-z]+\z@u';
 const ALLOW_MIME_TYPE = [
     'gif' => 'image/gif',
@@ -89,10 +89,15 @@ if ($display) {
     $filename = sprintf('%s.%s', $input_name, $ext);
     header('Content-Disposition: inline; filename="' . $filename . '"', true);
     header('Content-type:' . $mime_type, true);
+    header('Content-Length: ' . filesize($img_path . $input_file), true);
+    header('Connection: close', true);
+    while (ob_get_level()) {
+        ob_end_clean();
+    }
     readfile($img_path . $filename);
     exit();
 }
 
 // Error handler
-header('Content-Type: text/plain; charset=UTF-8', true, 400);
-exit('No such image.');
+header('Content-Type: text/plain; charset=UTF-8', true, 404);
+exit();
