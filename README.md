@@ -13,15 +13,9 @@ This script maybe can apply these cases.
 - Display images not including in the document root folder
 - Add auth to images
 
-The most important code is here.
-
-```php
-header('Content-Disposition: inline; filename= `filename`', true);
-header('Content-type: `mime-type`', true);
-readfile(`filepath`);
-```
-
 ## Demo
+
+![demo_image](example/result/res_img_2.png)
 
 See `example` folder.
 
